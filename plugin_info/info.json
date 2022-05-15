@@ -8,6 +8,6 @@
 	"category" : "devicecommunication",
 	"language" : ["fr_FR","en_US"],
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4","v3"],
-	"changelog" : "",
-	"documentation" : ""
+	"changelog" : "https://cddu33.github.io/stickde3/#language#/changelog",
+	"documentation" : "https://cddu33.github.io/stickde3/#language#/"
 }
