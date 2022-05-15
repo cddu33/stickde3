@@ -1,4 +1,4 @@
-# Plugin Nicolaudie Stick DE3 DMX
+# Plugin Nicolaudie Stick DE3 DMX pour Jeedom
 
 Ce plugin permet d'envoyer des ordres avec le protocole UDP à des interfaces Nicolaudie Stick DE3.
 
