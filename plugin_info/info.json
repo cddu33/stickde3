@@ -1,0 +1,13 @@
+{
+	"id" : "stickde3",
+	"name" : "Nicolaudie Stick DE3 DMX",
+	"description" : "Ce plugin permet de communiquer avec les interfaces Nicolaudie Stick DE3 en utilisant le protocole UDP",
+	"licence" : "AGPL",
+	"author" : "cddu33",
+	"require" : "3.2",
+	"category" : "devicecommunication",
+	"language" : ["fr_FR","en_US"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"],
+	"changelog" : "https:///jeedom_docs/plugins/stickde3/changelog.html",
+	"documentation" : "https:///jeedom_docs/plugins/stickde3/"
+}
