@@ -39,7 +39,7 @@ class stickde3 extends eqLogic {
 
     public function callstickde3($_url) {
     $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-    $_url = hex2($_url);
+    $_url = hex2bin($_url);
     $len = strlen($_url);
     socket_sendto($sock, $_url, $len, 0 ,$this->getConfiguration('addr'), $this->getConfiguration('port'));
     $result = 'good';
