@@ -58,8 +58,11 @@ class stickde3Cmd extends cmd {
     switch ($this->getType()) {
       case 'action' :
         $eqLogic = $this->getEqLogic();
-		log::add('stickde3', 'debug', 'Commande envoyée avant traitement: ' . $this->getConfiguration('commande'));  
-        $eqLogic->callstickde3(jeedom::evaluateExpression($this->getConfiguration('commande')));
+		log::add('stickde3', 'debug', 'Avant traitement: ' . $this->getConfiguration('commande'));  
+		$var=jeedom::evaluateExpression($this->getConfiguration('commande'));
+		log::add('stickde3', 'debug', 'Après jeedom: ' . $var); 
+        $eqLogic->callstickde3($var);
+		
     }
   }
 }
