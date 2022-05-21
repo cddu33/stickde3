@@ -147,7 +147,7 @@ function addCmdToTable(_cmd) {
   tr += '<td>';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="commande" style="width: 90%;display: inherit" ></input>';
    tr += '<span class="input-group-btn">'
-    tr += '<a class="btn btn-default btn-sm listEquipementAction" data-input="commande"><i class="fas fa-list-alt"></i></a>'
+    tr += '<a class="btn btn-default btn-sm listEquipementInfo" data-input="commande"><i class="fas fa-list-alt"></i></a>'
     tr += '</span>'
   tr += '</td>';
   tr += '<td>'
