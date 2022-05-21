@@ -58,21 +58,21 @@ class stickde3Cmd extends cmd {
       case 'action' :
         $eqLogic = $this->getEqLogic();
 		log::add('stickde3', 'debug', 'Avant traitement: ' . $this->getConfiguration('commande'));  
-		$var=jeedom::evaluateExpression($this->getConfiguration('commande'));
-		$var= str_replace('"', '', $var);
-		$var= str_replace('#', '', $var);
+		$var = jeedom::evaluateExpression($this->getConfiguration('commande'));
+		$var = str_replace('"', '', $var);
+		$var = str_replace('#', '', $var);
 		log::add('stickde3', 'debug', 'Après jeedom: ' . $var); 
         $eqLogic->callstickde3($var);
-		
+		break;
 	case 'info' :
         $eqLogic = $this->getEqLogic();
 		log::add('stickde3', 'debug', 'Info Avant traitement: ' . $this->getConfiguration('commande'));  
-		$var=jeedom::evaluateExpression($this->getConfiguration('commande'));
-		$var= str_replace('"', '', $var);
-		$var= str_replace('#', '', $var);
+		$var = jeedom::evaluateExpression($this->getConfiguration('commande'));
+		$var = str_replace('"', '', $var);
+		$var = str_replace('#', '', $var);
 		log::add('stickde3', 'debug', 'Après jeedom: ' . $var); 
-        $eqLogic->callstickde3($var);
-		return $this->getConfiguration('commande');
+        //$eqLogic->callstickde3($var);
+		return $var;
     }
   }
 }
