@@ -145,11 +145,9 @@ function addCmdToTable(_cmd) {
   tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>'
   tr += '</td>'
   tr += '<td>';
-     tr += '<span class="input-group-btn">'
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="commande" style="width: 90%;display: inherit" ></input>';
 
     tr += '<a class="btn btn-default listEquipementInfo btn-xs" data-input="commande"><i class="fas fa-list-alt"></i></a>'
-    tr += '</span>'
   tr += '</td>';
   tr += '<td>'
   tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/>{{Afficher}}</label> '
