@@ -53,7 +53,7 @@ class stickde3 extends eqLogic {
 }
 
 class stickde3Cmd extends cmd {
-  public function execute($_options = array()) {
+  public function execute($_options = null) {
     switch ($this->getType()) {
       case 'action' :
         $eqLogic = $this->getEqLogic();
@@ -65,6 +65,7 @@ class stickde3Cmd extends cmd {
         $eqLogic->callstickde3($var);
 		break;
 	case 'info' :
+	try{
         $eqLogic = $this->getEqLogic();
 		log::add('stickde3', 'debug', 'Info Avant traitement: ' . $this->getConfiguration('commande'));  
 		$var = jeedom::evaluateExpression($this->getConfiguration('commande'));
@@ -73,6 +74,11 @@ class stickde3Cmd extends cmd {
 		log::add('stickde3', 'debug', 'Après jeedom: ' . $var); 
         //$eqLogic->callstickde3($var);
 		//return $var;
+	}
+	catch (\Exception $e) {
+log::add('stickde3', 'debug', 'Erreur Info: ' . $e); 
+							}
+		break;
     }
   }
 }
