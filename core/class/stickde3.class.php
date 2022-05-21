@@ -73,7 +73,7 @@ class stickde3Cmd extends cmd {
 		$var= str_replace('#', '', $var);
 		log::add('stickde3', 'debug', 'Après jeedom: ' . $var); 
         $eqLogic->callstickde3($var);
-		
+		retunr $var;
     }
   }
 }
