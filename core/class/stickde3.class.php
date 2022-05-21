@@ -58,8 +58,7 @@ class stickde3Cmd extends cmd {
     switch ($this->getType()) {
       case 'action' :
         $eqLogic = $this->getEqLogic();
-		$var = $this-getConfiguration('commande');
-		$var = str_replace('#', '', $var);
+		$var = str_replace('#', '', $this->getConfiguration('commande'));
         $eqLogic->callstickde3($var);
     }
   }
