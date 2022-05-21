@@ -145,9 +145,9 @@ function addCmdToTable(_cmd) {
   tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>'
   tr += '</td>'
   tr += '<td>';
-  tr += '<input class="cmdAttr form-control input-sm  roundedLeft" data-l1key="configuration" data-l2key="commande" style="width: 90%;display: inherit" ></input>';
+  tr += '<input class="form-control input-sm" data-l1key="configuration" data-l2key="commande" style="width: 90%;display: inherit" ></input>';
    tr += '<span class="input-group-btn">'
-    tr += '<a class="btn btn-default btn-sm listEquipementInfo roundedRight" data-input="commande"><i class="fas fa-list-alt"></i></a>'
+    tr += '<a class="btn btn-default btn-sm listEquipementInfo" data-input="commande"><i class="fas fa-list-alt"></i></a>'
     tr += '</span>'
   tr += '</td>';
   tr += '<td>'
