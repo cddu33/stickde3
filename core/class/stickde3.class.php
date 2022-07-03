@@ -19,71 +19,48 @@
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
-class stickde3 extends eqLogic 
-{
-	public function preUpdate() {
-		if ($this->getConfiguration('addr') == '') 
-		{
-			throw new Exception(__('L\'adresse ne peut être vide',__FILE__));
-		}
-		if ($this->getConfiguration('port') == '') 
-		{
-			throw new Exception(__('Le port ne peut être vide',__FILE__));
-		}
-	}
+class stickde3 extends eqLogic {
+ 
+  public function preUpdate() {
+    if ($this->getConfiguration('addr') == '') {
+      throw new Exception(__('L\'adresse ne peut être vide',__FILE__));
+    }
+    if ($this->getConfiguration('port') == '') {
+      throw new Exception(__('Le port ne peut être vide',__FILE__));
+    }
+  }
 
-	public function preSave() 
-	{
-		$this->setLogicalId($this->getConfiguration('addr'));
-	}
+  public function preSave() {
+    $this->setLogicalId($this->getConfiguration('addr'));
+  }
 
-	public function postSave() 
-	{
-	}
+  public function postSave() {
+  }
 
-	public function callstickde3($_url) 
-	{
-		$sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
-	
-		$_url = hex2bin($_url);
-		$len = strlen($_url);
-		socket_sendto($sock, $_url, $len, 0 ,$this->getConfiguration('addr'), $this->getConfiguration('port'));
-		log::add('stickde3', 'debug', 'Commande envoyée: ' . $_url . ' adresse: '. $this->getConfiguration('addr') . ' port: ' . $this->getConfiguration('port'));  
-		socket_close($sock);
-		return;
-	}
+    public function callstickde3($_url) {
+    $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+      log::add('stickde3', 'debug', 'Commande avant conversion:' . $_url);  
+    $_url = hex2bin($_url);
+    $len = strlen($_url);
+    socket_sendto($sock, $_url, $len, 0 ,$this->getConfiguration('addr'), $this->getConfiguration('port'));
+    $result = 'good';
+    log::add('stickde3', 'debug', 'Commande envoyée: ' . $_url . ' adresse: '. $this->getConfiguration('addr') . ' port: ' . $this->getConfiguration('port'));  
+
+    socket_close($sock);
+    return $result;
+  }
+  
 }
 
+
 class stickde3Cmd extends cmd {
-	public function execute($_options = null) {
-		$eqLogic = $this->getEqLogic();
-		switch ($this->getType()) 
-		{
-			case 'info' :
-				try
-				{
-					log::add('stickde3', 'debug', 'Info Avant traitement: ' . $this->getConfiguration('commande'));  
-					$var = jeedom::evaluateExpression($this->getConfiguration('commande'));
-					$var = str_replace('"', '', $var);
-					$var = str_replace('#', '', $var);
-					log::add('stickde3', 'debug', 'Après jeedom: ' . $var); 
-					$eqLogic->callstickde3($var);
-					return $var;
-				}
-				catch (\Exception $e) 
-				{
-					log::add('stickde3', 'debug', 'Erreur Info: ' . $e); 
-				}
-			break;
-			case 'action' :
-				log::add('stickde3', 'debug', 'Avant traitement: ' . $this->getConfiguration('commande'));  
-				$var = jeedom::evaluateExpression($this->getConfiguration('commande'));
-				$var = str_replace('"', '', $var);
-				$var = str_replace('#', '', $var);
-				log::add('stickde3', 'debug', 'Après jeedom: ' . $var); 
-				$eqLogic->callstickde3($var);
-			break;
-		}
-	}
+  public function execute($_options = array()) {
+    switch ($this->getType()) {
+      case 'action' :
+        $eqLogic = $this->getEqLogic();
+        $eqLogic->callstickde3($this->getConfiguration('commande'));
+        
+    }
+  }
 }
   ?>
