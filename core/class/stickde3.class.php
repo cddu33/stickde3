@@ -49,9 +49,6 @@ class stickde3 extends eqLogic {
 		$stickde3Cmd->setSubType('string');
 		$stickde3Cmd->save();
   }
-
-  
-
     public function callstickde3($_url) {
     $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
       log::add('stickde3', 'debug', 'Commande avant conversion:' . $_url);  
