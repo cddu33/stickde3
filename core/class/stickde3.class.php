@@ -65,6 +65,7 @@ class stickde3 extends eqLogic {
     return $result;
   }
   
+
 }
 
 
