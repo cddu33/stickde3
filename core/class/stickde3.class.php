@@ -71,10 +71,11 @@ class stickde3 extends eqLogic {
 class stickde3Cmd extends cmd {
   public function execute($_options = array()) {
       $eqLogic = $this->getEqLogic();
-    switch ($this->getType()) {
-      case 'action' :
+    /*switch ($this->getType()) {
+      case 'action' :*/
         $eqLogic->callstickde3($this->getConfiguration('commande'));
         $eqlogic->checkAndUpdateCmd('last', '');
+       /* break;*/
     }
   }
 }
