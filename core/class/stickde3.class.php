@@ -74,7 +74,7 @@ class stickde3Cmd extends cmd {
       case 'action' :
         $eqLogic = $this->getEqLogic();
         $eqLogic->callstickde3($this->getConfiguration('commande'));
-        $eqlogic->checkAndUpdateCmd('last', $this->getName());
+        $eqlogic->checkAndUpdateCmd('last', '');
     }
   }
 }
