@@ -36,6 +36,7 @@ class stickde3 extends eqLogic {
 
   public function postSave() {
   }
+
   public function postUpdate() {
       $stickde3Cmd = $this->getCmd(null, 'last');
   if (!is_object($stickde3Cmd)) {
@@ -47,8 +48,6 @@ class stickde3 extends eqLogic {
 		$stickde3Cmd->setType('info');
 		$stickde3Cmd->setSubType('string');
 		$stickde3Cmd->save();
-
-
   }
 
   
@@ -75,7 +74,8 @@ class stickde3Cmd extends cmd {
       case 'action' :
         $eqLogic = $this->getEqLogic();
         $eqLogic->callstickde3($this->getConfiguration('commande'));
-        
+        $info = $this->getConfiguration('name')
+        $eqlogic->checkAndUpdateCmd('last', $info)
     }
   }
 }
