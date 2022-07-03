@@ -82,7 +82,7 @@ $(".li_eqLogic").on('click', function (event) {
   }
   return false;
 });
-
+/*
 $("#bt_addstickde3Info").on('click', function(event) {
     var _cmd = {type: 'info'};
     addCmdToTable(_cmd);
@@ -94,7 +94,7 @@ $("#bt_addstickde3Action").on('click', function(event) {
 });
 
 
-/*
+
 $('#table_cmd tbody').delegate('tr .remove', 'click', function(event) {
     $(this).closest('tr').remove();
 });*/
