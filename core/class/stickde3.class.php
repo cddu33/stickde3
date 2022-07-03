@@ -36,6 +36,22 @@ class stickde3 extends eqLogic {
 
   public function postSave() {
   }
+  public function postUpdate() {
+      $stickde3Cmd = $this->getCmd(null, 'last');
+  if (!is_object($stickde3Cmd)) {
+			$stickde3Cmd = new stickde3Cmd();
+		}
+		$stickde3Cmd->setName(__('Dernière commande', __FILE__));
+		$stickde3Cmd->setLogicalId('last');
+		$stickde3Cmd->setEqLogic_id($this->getId());
+		$stickde3Cmd->setType('info');
+		$stickde3Cmd->setSubType('autre');
+		$stickde3Cmd->save();
+
+
+  }
+
+  
 
     public function callstickde3($_url) {
     $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
