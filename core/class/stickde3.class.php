@@ -45,7 +45,7 @@ class stickde3 extends eqLogic {
 		$stickde3Cmd->setLogicalId('last');
 		$stickde3Cmd->setEqLogic_id($this->getId());
 		$stickde3Cmd->setType('info');
-		$stickde3Cmd->setSubType('other');
+		$stickde3Cmd->setSubType('string');
 		$stickde3Cmd->save();
 
 
