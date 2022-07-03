@@ -138,8 +138,10 @@ function addCmdToTable(_cmd) {
   tr += '<td class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType();
   tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span></td>';
   tr += '</td>'
-  tr += '<td>';
-  tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="commande" style="width: 90%;display: inherit" ></input>';
+    tr += '<td>';
+    if (!isset(_cmd.type) || _cmd.type == 'action') {
+        tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="commande" style="width: 90%;display: inherit" ></input>';
+    }
   tr += '</td>';
   tr += '<td>'
     tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/>{{Afficher}}</label> '
