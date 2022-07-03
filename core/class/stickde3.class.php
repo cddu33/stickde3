@@ -37,16 +37,21 @@ class stickde3 extends eqLogic {
   public function postSave() {
   }
 
-  public function callstickde3($_url) {
+    public function callstickde3($_url) {
     $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+      log::add('stickde3', 'debug', 'Commande avant conversion:' . $_url);  
+    $_url = hex2bin($_url);
     $len = strlen($_url);
     socket_sendto($sock, $_url, $len, 0 ,$this->getConfiguration('addr'), $this->getConfiguration('port'));
     $result = 'good';
+    log::add('stickde3', 'debug', 'Commande envoyée: ' . $_url . ' adresse: '. $this->getConfiguration('addr') . ' port: ' . $this->getConfiguration('port'));  
+
     socket_close($sock);
     return $result;
   }
   
 }
+
 
 class stickde3Cmd extends cmd {
   public function execute($_options = array()) {
@@ -54,7 +59,7 @@ class stickde3Cmd extends cmd {
       case 'action' :
         $eqLogic = $this->getEqLogic();
         $eqLogic->callstickde3($this->getConfiguration('commande'));
-        log::add('stickde3', 'debug', 'Commande envoyée: ' . $this->getConfiguration('commande'));  
+        
     }
   }
 }
